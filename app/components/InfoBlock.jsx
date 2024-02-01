@@ -1,20 +1,21 @@
 import Link from "next/link"
+import ReactMarkdown from "react-markdown";
 
 const InfoBlock = ({ data }) => {
-  const { headline, text, button, reversed } = data
+  const { headline, text, button, imgSrc, showImageRight } = data
 
   return (
-    <div className={`info ${reversed ? 'info--reversed' : ''}`}>
+    <div className={`info ${showImageRight ? 'info--reversed' : ''}`}>
       <img 
         className="info__image" 
-        src="/info-blocks/home-info-block-1.png" 
+        src={imgSrc} 
         alt="first info block" 
       />
 
       <div className="info__text">
         <h2 className="info__headline">{headline}</h2>
 
-        {text}
+        <ReactMarkdown className="copy">{text}</ReactMarkdown>
 
         {button}
       </div>
