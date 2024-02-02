@@ -45,3 +45,23 @@ const createInfoBlockButton = (buttonData) => {
     </Link>
   );
 }
+
+export const processBlogArticle = (data) => {
+  const articlesRaw = data;
+
+  const articles = articlesRaw.map((article) => {
+    return {
+      ...article.attributes,
+      imgSrc: BASE_URL + article.attributes.featuredImage.data.attributes.url,
+      publishedOn: new Date(article.attributes.createdAt).toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+      id: article.id,
+    }
+  });
+
+  return articles;
+}

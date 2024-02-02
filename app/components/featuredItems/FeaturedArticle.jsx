@@ -9,7 +9,7 @@ const FeaturedArticle = ({article}) => {
     >
       <div className="featured-items__article-img">
         <img 
-          src={article.featuredImage} 
+          src={article.imgSrc} 
           alt={`Go read article ${article.headline}`} 
           className=""
           />
@@ -17,7 +17,7 @@ const FeaturedArticle = ({article}) => {
 
       <div className="featured-items__article-text">
         <h5>{article.headline}</h5>
-        <p className="copy-small">{article.date}</p>
+        <p className="copy-small">{`Date Published: ${article.publishedOn}`}</p>
       </div>
     </Link>
   )
